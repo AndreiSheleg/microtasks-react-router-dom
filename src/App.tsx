@@ -14,9 +14,9 @@ function App() {
             <div className={styles.body}>
                 <div className={styles.nav}>
                     Здесь будет навигация:
-                    <div><NavLink to={'/page-1'}>-Page-1</NavLink></div>
-                    <div><NavLink to={'/page-2'}>-Page-2</NavLink></div>
-                    <div><NavLink to={'/page-3'}>-Page-3</NavLink></div>
+                    <div><NavLink to={'/page-1'} className={({isActive}) => isActive ? styles.active : styles.navLink } >-Page-1</NavLink></div>
+                    <div><NavLink to={'/page-2'} className={({isActive}) => isActive ? styles.active : styles.navLink }>-Page-2</NavLink></div>
+                    <div><NavLink to={'/page-3'} className={({isActive}) => isActive ? styles.active : styles.navLink }>-Page-3</NavLink></div>
                 </div>
                 <div className={styles.content}>
                     <Routes>

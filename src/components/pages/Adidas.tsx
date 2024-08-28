@@ -4,44 +4,17 @@ import adidasModel2 from '../../assets/Superstar_XLG_Shoes_Black_IG9777_01_stand
 import adidasModel3
     from '../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import {Link} from "react-router-dom";
+import {ModelType} from "../../App";
 
-export type AdidasItem = {
-    id: number,
-    model: string;
-    collection: string;
-    price: string;
-    picture: string;
+type AdidasPropsType = {
+    dataArr: ModelType[]
 }
-export const adidasArr: AdidasItem[] = [
-    {
-        id: 1,
-        model: 'ADIDAS ADIFOM TRXN',
-        collection: 'new collection1',
-        price: '100200$',
-        picture: adidasModel1,
-
-    },
-    {
-        id: 2,
-        model: 'ADIDAS ADIFOM SUPER',
-        collection: 'new collection22',
-        price: '200300$',
-        picture: adidasModel2
-    },
-    {
-        id: 3,
-        model: 'ADIDAS SUPER SUPERSKI',
-        collection: 'new collection333',
-        price: '300400$',
-        picture: adidasModel3
-    }
-]
-export const Adidas = () => {
+export const Adidas: React.FC<AdidasPropsType> = ({dataArr}) => {
     return (
         <div>
             <h2> ADIDAS</h2>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-                {adidasArr.map((el, index) => (
+                {dataArr.map((el, index) => (
                     <Link key={index} to={`/adidas/${el.id}`}>
                         <img
                             src={el.picture} alt={el.model}

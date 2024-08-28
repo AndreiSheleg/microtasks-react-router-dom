@@ -1,9 +1,29 @@
 import React from 'react';
+import pumaModel1 from "../../assets/sneakersy-puma-puma-r78-cobalt-glaze-393910-06-cobalt-glaze-puma-navy-for-all-time-red-0000303330477.webp";
+import pumaModel2 from "../../assets/sneakersy-puma-st-runner-v4-sd-399665-04-brazowy-0000303895471.webp";
+import pumaModel3
+    from "../../assets/sneakersy-puma-smash-3-0-year-of-sports-397484-01-zielony-0000303895037.webp";
+import {Link} from "react-router-dom";
+import {ModelType} from "../../App";
 
-export const Puma = () => {
+export type PumaPropsType = {
+    dataArr: ModelType[]
+}
+export const Puma: React.FC<PumaPropsType> = ({dataArr}) => {
     return (
         <div>
             <h2>PUMA</h2>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                {dataArr.map((el, index) => (
+                    <Link key={index} to={`/puma/${el.id}`}>
+                        <img
+                            src={el.picture}
+                            alt={el.model}
+                            style={{width: '200px', height: 'auto', marginRight: '10px'}}
+                        />
+                    </Link>
+                ))}
+            </div>
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard

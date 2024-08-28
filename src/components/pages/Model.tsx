@@ -1,14 +1,18 @@
 import React from 'react';
-import {adidasArr} from './Adidas'
 import {useParams} from "react-router-dom";
 import {Error404} from "./Error404";
+import {ModelType} from "../../App";
 
-export const Model = () => {
+type ModelPropsType = {
+    dataArr: ModelType[]
+}
+
+export const Model:React.FC<ModelPropsType> = ({dataArr}) => {
     const params = useParams()
     //     console.log('adidasArr: ', adidasArr)
     // console.log('paramsId: ', params.modelId)
 
-    const selectedModel = adidasArr[Number(params.modelId) - 1]
+    const selectedModel = dataArr[Number(params.modelId) - 1]
 
     if (!selectedModel) {
         <Error404/>
